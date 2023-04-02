@@ -46,11 +46,11 @@ ipfs v0.12.2
     ```
 4. Install and run `ipfs` daemon.
 
-In a separate terminal:
+    In a separate terminal:
 
-CD to the directory containing this project
+    CD to the directory containing this project
 
-Run the following commands to start the ipfs daemon (used for uploading images):
+    Run the following commands to start the ipfs daemon (used for uploading images):
 ```
 ipfs init
 
