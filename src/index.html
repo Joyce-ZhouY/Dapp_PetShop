@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Decentralized Pet Shop</title>
+
+    <!-- <a href="vote.html">
+      <button> Vote your favourite pets </button>
+    </a> -->
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+    h1 {text-align: center;}
+    .row-margin-05 { margin-top: 0.5em; }
+    .row-margin-10 { margin-top: 1.0em; }
+    .row-margin-20 { margin-top: 2.0em; }
+    .row-margin-30 { margin-top: 3.0em; }
+    </style>
+  <body style="background-color: powderblue;">
+    <header>
+      <h1>Decentralized Pet Shop</h1>      
+    </header>
+
+    <nav class="navbar navbar-default ">
+      <div class="container" style="font-size:medium;">
+        <div class="row">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="/add_pet_form.html"><button>Add Pet</button></a></li></ul> 
+
+        <!-- <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              SUPPORT US <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="btn btn-link btn-donate" type="button" onclick="App.handleDonation()">Donate To Us</a></li>
+            </ul>
+          </li>
+        </ul> -->
+
+        <div class="search bar">
+          <form class="form-inline" style="margin-top:10px;">
+            <select id = "filterAdopt" >
+              <option value="all" selected>All</option>
+              <option value="adopted">Adopted</option>
+              <option value="notAdopted">Not adopted</option>
+            </select>
+            
+             <select id = "filterType" >
+              <option value="breed" selected="selected">Breed</option>
+              <option value="age">Age</option>
+              <option value="location">Location</option>
+            </select>
+            <input type="text" class="form-control" id="filterValue" name="x" placeholder="Search pet..."> 
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+          </form>
+        </div>  
+      
+    </div>
+  </nav>
+
+    </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <h1 class="text-center">Adoption List</h1>
+          <hr/>
+          <br/>
+        </div>
+      </div>
+    </div>
+
+    <div id="adoptionRow" class="row">
+        <!-- PETS LOAD HERE -->
+    </div>
+ 
+    <div id="saleRow" class="row">
+</div> 
+</div>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-push-2">
+        <h1 class="text-center">Adoption History</h1>
+        <hr/>
+      
+        <div id="historyRow" style="display: none;">
+          <h3 class="time-stamp text-center"></h3>
+          <h3 class="history text-center"></h3>
+        </div>
+      </div>
+    </div>
+
+    <div id="all_history"></div>
+
+
+
+    <div id="petTemplate" style="display: none;">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="panel panel-default panel-pet">
+          <div class="panel-heading">
+            <h3 class="panel-title">Scrappy</h3>
+          </div>
+          <div class="panel-body">
+            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="images/golden-retriever.jpeg" 
+            width="140" height="380" data-holder-rendered="true">
+            <br/><br/>
+            <strong>Breed</strong>: <span class="pet-breed">Golden Retriever</span><br/>
+            <strong>Age</strong>: <span class="pet-age">3</span><br/>
+            <strong>Location</strong>: <span class="pet-location">Warren, MI</span><br/>
+            <!-- <strong>&#x2764;&#xFE0F;Liked by</strong>: <span class="like" name="like">0</span><br/><br/> -->
+            <!-- <div id="isForSale" hidden="true"> -->
+              <!-- <strong>Price(ETH)</strong>:<span class="pet-price">1</span><br/><br/> -->
+            </div>
+            <div id="adoptButton">
+              <button class="btn btn-default btn-adopt" type="button" data-id="0">Adopt</button>
+              <!-- <button class="btn btn-default btn-adopt-vote pull-right" name = "vote" type="button" data-id-like-adopt="0">&#x2764;&#xFE0F;Like</button> -->
+            </div>
+            <div hidden id="saleButton">
+              <button class="btn btn-default btn-sale" type="button" data-id="1">Sale</button>
+              <!-- <button class="btn btn-default btn-sale-vote pull-right" name = "vote" type="button" data-id-like-sale="0">&#x2764;&#xFE0F;Like</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
