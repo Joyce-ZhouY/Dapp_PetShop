@@ -51,13 +51,13 @@ ipfs v0.12.2
     CD to the directory containing this project
 
     Run the following commands to start the ipfs daemon (used for uploading images):
-```
-ipfs init
+    ```
+    ipfs init
 
-ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[\"*\"]'
+    ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin "[\"*\"]"
 
-ipfs daemon
-```
+    ipfs daemon
+    ```
 5. To run the unit tests, run:
 
 ```
