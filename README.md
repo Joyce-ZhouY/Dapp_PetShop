@@ -39,14 +39,7 @@ ipfs v0.12.2
     truffle compile
     truffle migrate
     ```
-3. Run the `liteserver` development server (outside the development console) for front-end hot reloading. Smart contract changes must be manually recompiled and migrated.
-    ```javascript
-    // Serves the front-end on http://localhost:3000
-    npm run dev
-    ```
-4. Install and run `ipfs` daemon.
-
-    In a separate terminal:
+3.  Install and run `ipfs` daemon.
 
     CD to the directory containing this project
 
@@ -58,6 +51,13 @@ ipfs v0.12.2
 
     ipfs daemon
     ```
+
+4. In a separate terminal: Run the `liteserver` development server (outside the development console) for front-end hot reloading. Smart contract changes must be manually recompiled and migrated.
+    ```javascript
+    // Serves the front-end on http://localhost:3000
+    npm run dev
+    ```
+    
 5. To run the unit tests, run:
 
 ```
