@@ -2,6 +2,7 @@ pragma solidity ^0.5.0;
 
 contract Adoption {
 
+// APS1050: Defined a struct to store pet info 
     struct Pet{
         uint id; //0
         string name; //1
@@ -10,12 +11,11 @@ contract Adoption {
         string breed; //4
         string location; //5
         address payable adopter; //6
-        // bool isForSale;
-        // uint price;
-        // bool sold;
         uint date; //7
         bool isAdopted; //8
     }
+    
+ 
 
 
 
@@ -38,13 +38,8 @@ contract Adoption {
 
     event Deposit(address indexed from, uint amount);
 
-    function donate() external payable{
-        // require(msg.value > 0, "The amount of donation should be larger than 0");
-        emit Deposit(msg.sender, msg.value);
-    }
 
-    // function receive() 
-    // Adopting a pet
+    // APS1050 Adopting a pet
     function adopt(uint petId) public returns (uint) {
       require(petId >= 0 && petId < petsNum);
 
@@ -56,7 +51,7 @@ contract Adoption {
       return petId;
 }
 
-    // Adding a pet
+    // APS1050 Adding a pet
     function add(string memory name, string memory picture, uint age, string memory breed,
         string memory location) public returns (uint) {
 
@@ -74,7 +69,7 @@ contract Adoption {
         return petsNum;
     }
 
-    // Retrieving the pet's details
+    // APS 1050 Retrieving the pet's details
     function getPetDetails(uint petId) public view returns (uint, string memory, string memory, uint, string memory,
         string memory, address payable, uint, bool) {
         require(petId >= 0 && petId < petsNum);
