@@ -56,6 +56,7 @@ ipfs v0.12.2
 4. In a separate terminal: Run the `liteserver` development server (outside the development console) for front-end hot reloading. Smart contract changes must be manually recompiled and migrated.
     ```javascript
     // Serves the front-end on http://localhost:3000
+    npm init -y
     npm run dev
     ```
     
