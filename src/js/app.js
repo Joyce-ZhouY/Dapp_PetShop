@@ -53,32 +53,8 @@ App = {
     $(document).on('click', '.btn-adopt', App.handleAdopt);
     $(document).on('click', '.form-inline',App.filter);
     $(document).on('submit', '.add-form', App.handleRegistration);
-    // $(document).on('click', '.btn-sale', App.handleSale);
-    // $(document).on('click', '.btn-adopt-vote', App.handleVoteAdopt);
-    // $(document).on('click', '.btn-sale-vote', App.handleVoteSale);
-    // $(document).on('click', '#return', App.handleReturn);
   },
 
-  // handleDonation: function(even){
-  //   event.preventDefault();
-  //   App.donate();
-  // },
-
-  // donate: function(){
-  //     var adoptionInstance;
-  //     var accounts = web3.eth.getAccounts;
-  //     App.contracts.Adoption.deployed().then(function(instance){
-  //       adoptionInstance = instance;
-  //       var owner =  adoptionInstance.getMyAddr.call();
-  //       console.log(owner);
-  //       return owner;
-  //     }).then(async function(owner){
-  //       console.log(owner);
-  //       await adoptionInstance.donate(50000000,{from:"0xeB0701420b1EcD12a737FC989820E94E81eEf94E",to:"0x768e18cDD80ef7f0B1aBcBd99E8a2dE204DDCD06",value:"50000000"});
-  //     }).catch(function(err) {
-  //     console.log(err.message);
-  //   });
-  // },
 
 
   markAdopted: function(petId, account) {
@@ -128,6 +104,7 @@ App = {
     });
   },
 
+  // APS1050 a function to filter pets by breed, age and location
   type_filter(type, type_value, petsData){
     var results = [];
     if(!(type.length == 0 || type_value.length == 0)){
@@ -161,6 +138,7 @@ App = {
     return results;
   },
 
+  // APS 1050 a function to display filtered results
   filter:async function(){
     var adoptionRow = $('#adoptionRow');
     var petTemplate = $('#petTemplate');
@@ -322,7 +300,7 @@ App = {
       }
     }
 
-    // adoption history
+    // display adoption history
     for (let i = 0; i < adoptionList.length; i++){
       if(adoptionList[i][8]){
         var date = new Date();
@@ -390,8 +368,9 @@ App = {
       }
     
   },
+  
 
-  /////////REGISTERATION /////////////
+  // aps1050 a function to add a new pet and store pets' images using ipfs
   registerPets: function(newData){ //input array of new pet's data
     var adoptionInstance;
     web3.eth.getAccounts(function(error, accounts) {
@@ -433,6 +412,7 @@ App = {
     })
   },
 
+  // aps1050 a function to handle the event of adding a pet
   handleRegistration: function(event) {
     event.preventDefault();
     //check if the form is filled
