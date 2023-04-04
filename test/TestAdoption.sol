@@ -14,20 +14,16 @@ contract TestAdoption {
 //The expected owner of adopted pet is this contract
  address expectedAdopter = address(this);
 
- // Number of pets
- uint public petsNum;
-
-// run before every test
- function befereTest() public{
-  petsNum = 0;
- }
-
+function testingGetPetnum() public{
+  uint petNum = adoption.getPetsNum();
+  Assert.equal(petNum, 0, "Number of pets should be zero");
+}
 
 
 // Tetsing adding a new pet
 function testAddANewPet() public{
   uint id = adoption.add("Jack", "https://ipfs.io/ipfs/QmY3MKgdpngKTQwdKHmwCdA6Mb9ouS7HbByvQJfuFnRZMz", 2, "Panda", "China");
-  Assert.equal(petsNum, 1, "Number of pets should be one");
+  Assert.equal(adoption.getPetsNum(), 1, "Number of pets should be one");
 }
 
 
@@ -56,7 +52,7 @@ function testGetAdopterAddressByPetIdInArray() public {
 
 // Testing retrieval of a pet's details 
 function testGetPetDetailByPetId() public {
-  (uint id,string memory name,string memory picture, uint age,string memory breed,string memory loaction,address payable adoptor,uint date, bool isAdopted) = adoption.getPetDetails(expectedPetId);
+  (uint id, string memory name,string memory picture, uint age,string memory breed,string memory loaction,address payable adoptor,uint date, bool isAdopted) = adoption.getPetDetails(expectedPetId);
   Assert.equal(id, expectedPetId, "Wrong id");
   Assert.equal(name, "Jack", "Wrong name");
   Assert.equal(picture, "https://ipfs.io/ipfs/QmY3MKgdpngKTQwdKHmwCdA6Mb9ouS7HbByvQJfuFnRZMz", "Wrong picture");
