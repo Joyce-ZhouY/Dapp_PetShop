@@ -134,7 +134,7 @@ App = {
       console.log("Starting filtering ... ");
       if('breed' === type){ //filter breed of pet
         for(let i = 0; i < petsData.length; i++){
-          if(petsData[i][4] === type_value.toLowerCase()){
+          if(petsData[i][4].toLowerCase() === type_value.toLowerCase()){
             // console.log(petsData[i][4]);
             // console.log(type_value.toLowerCase());
             // console.log(petsData[i][4] === type_value.toLowerCase());
@@ -151,7 +151,7 @@ App = {
           }
         }else{// filtering location
           for(let i = 0; i < petsData.length; i++){
-            if(petsData[i][5] === type_value.toLowerCase()){
+            if(petsData[i][5].toLowerCase() === type_value.toLowerCase()){
               results.push(petsData[i]);
             }
           }
