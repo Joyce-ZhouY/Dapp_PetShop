@@ -36,11 +36,14 @@ ipfs v0.12.2
     ```
 2. Compile and migrate the smart contracts.
     ```javascript
+    truffle networks --clean
     truffle compile
     truffle migrate
-    truffle networks --clean
     ```
-3.  Install and run `ipfs` daemon.
+3.  Install `IPFS Kubo` via the following link: [https://docs.ipfs.tech/install/command-line/#system-requirements](https://docs.ipfs.tech/install/command-line/#system-requirements)
+
+
+4. run `ipfs` daemon.
 
     CD to the directory containing this project
 
@@ -53,7 +56,7 @@ ipfs v0.12.2
     ipfs daemon
     ```
 
-4. In a separate terminal: Run the `liteserver` development server (outside the development console) for front-end hot reloading. Smart contract changes must be manually recompiled and migrated.
+5. In a separate terminal: Run the `liteserver` development server (outside the development console) for front-end hot reloading. Smart contract changes must be manually recompiled and migrated.
     ```javascript
     // Serves the front-end on http://localhost:3000
     npm init -y
