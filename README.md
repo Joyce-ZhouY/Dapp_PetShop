@@ -38,6 +38,7 @@ ipfs v0.12.2
     ```javascript
     truffle compile
     truffle migrate
+    truffle networks --clean
     ```
 3.  Install and run `ipfs` daemon.
 
